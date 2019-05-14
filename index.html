@@ -8,6 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="./css/bootstrap.min.css" >
      <link rel="stylesheet" href="./css/style.css"/>
+     
     <title>Hilton Chicago</title>
   </head>
   <body>
@@ -40,22 +41,100 @@
                       <ul class="nav flex-column">
                               <li class="nav-item">
                                 <a class="nav-link" href="#">Map<span class="sub_icon"><i class="arrow arrowright"></i></span></a>
+                                <!-- sub menu section start-->
+                                <ul>
+                                  <li>
+                                      <div id="map" ><img src="./images/google-map.jpg"/></div>
+                                  </li>
+                                </ul>
+                                
+                                <!-- sub menu section end-->
                               </li>
                               <li class="nav-item">
                                 <a class="nav-link" href="#">Photo gallery <span class="sub_icon"><i class="arrow arrowright"></i></span></a>
+                                <!-- sub menu section start-->
+                                <ul>
+                                   <li>
+                                      <div class="row">
+                                          <div class="col-lg-6 col-md-6 col-xs-6 thumb">
+                                              <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
+                                                 data-image="https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                                                 data-target="#image-gallery">
+                                                  <img class="img-thumbnail"
+                                                       src="https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                                                       alt="Another alt text">
+                                              </a>
+                                          </div>
+                                          <div class="col-lg-6 col-md-6 col-xs-6 thumb">
+                                              <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
+                                                 data-image="https://images.pexels.com/photos/158971/pexels-photo-158971.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                                                 data-target="#image-gallery">
+                                                  <img class="img-thumbnail"
+                                                       src="https://images.pexels.com/photos/158971/pexels-photo-158971.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                                                       alt="Another alt text">
+                                              </a>
+                                          </div>
+                                          </div>
+
+                                   </li>  
+
+                                  </ul>
+                                  <!-- sub menu section end-->
                               </li>
                               <li class="nav-item">
                                       <a class="nav-link" href="#">Amenities <span class="sub_icon"><i class="arrow arrowright"></i></span></a>
-                              </li>
-                              <li class="nav-item">
-                                  <a class="nav-link" href="#"></a>
-                          </li>
+                             
+                                      <ul>
+                                        <li><a class="nav-link" href="#">Project 1</a></li>
+                                        <li><a class="nav-link" href="#">Project 2</a></li>
+                                        <li><a class="nav-link" href="#">Project 3</a></li>
+                                      </ul>
+                                    </li>
+                              
                             </ul>
                     </nav> <!-- Navbar End Here --> 
             </div>
          </div>
         </div>   <!-- Body End Here --> 
+        
   </section>
-   
-  </body>
+  <div class="modal fade" id="image-gallery" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h4 class="modal-title" id="image-gallery-title"></h4>
+                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                  </button>
+              </div>
+              <div class="modal-body">
+                  <img id="image-gallery-image" class="img-responsive col-md-12" src="">
+              </div>
+              
+          </div>
+      </div>
+  </div>
+  <!--footer section start-->
+  <footer>
+    &copy; Hilton Chicago All Right Reserve 2019
+  </footer>
+  <!--footer section END-->  
+  
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+  <script src="./js/custome.js"></script>
+<script>
+(function(){
+$(document).on('click','.nav li .nav-link',function(){
+  if($(this).parent('li').children().length>1){
+    $('.nav li ul').not($(this).next('ul')).slideUp();
+  $('.sub_icon').not($(this).children('.sub_icon')).removeClass('arrowDown');
+  $(this).next('ul').slideToggle();
+  $(this).children('.sub_icon').toggleClass('arrowDown');
+  }
+  
+});
+})(jQuery)
+</script>  
+</body>
 </html>
